@@ -1,5 +1,12 @@
 .campeao {
     width: 280px;
+    position: relative;
+}
+
+.campeao .deletar {
+    position: absolute;
+    right: -10px;
+    top: -10px;
 }
 
 .campeao .cabecalho {
@@ -35,4 +42,8 @@
     font-weight: bold;
     line-height: 22px;
     padding: 0px 16px;
+}
+
+.favoritar {
+    margin-top: 10px;
 }

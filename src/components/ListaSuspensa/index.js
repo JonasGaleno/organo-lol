@@ -1,19 +1,19 @@
 import './index.css';
 
-const ListaSuspensa = (props) => {
+const ListaSuspensa = ({valor, aoAlterado, obrigatorio, label, placeholder, itens}) => {
 
     return (
         <div className="campo-lista">
             <label>
-                {props.label}
+                {label}
             </label>
             <select 
-                required={props.obrigatorio} 
-                value={props.valor} 
-                onChange={evento => props.aoAlterado(evento.target.value)}
+                required={obrigatorio} 
+                value={valor} 
+                onChange={evento => aoAlterado(evento.target.value)}
             >
-                 <option value="">{props.placeholder}</option>
-                {props.itens.map(item =>  <option key={item}>{item}</option>)}
+                 <option value="">{placeholder}</option>
+                {itens.map(item =>  <option key={item}>{item}</option>)}
             </select>
         </div>
     );

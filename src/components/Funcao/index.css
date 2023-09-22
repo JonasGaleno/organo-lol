@@ -1,7 +1,13 @@
 .funcao {
     text-align: center;
     padding: 32px;
-    /* background-color: #D9F7E9; */
+    position: relative;
+}
+
+.funcao .cor-fundo {
+    position: absolute;
+    top: 20px;
+    right: 50px;
 }
 
 .funcao h3 {

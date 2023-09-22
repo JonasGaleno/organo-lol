@@ -1,20 +1,30 @@
+import hexToRgba from 'hex-to-rgba';
 import Campeao from '../Campeao';
 import './index.css';
 
-const Funcao = (props) => {
+const Funcao = ({funcao, campeoes, aoDeletar, mudarCor, aoFavoritar}) => {
 
     return (
-        (props.campeoes.length > 0) &&
-        <section className='funcao' style={{backgroundColor: props.corSecundaria}}>
-            <h3 style={{borderBottomColor: props.corPrimaria}}>{props.nome}</h3>
+        (campeoes.length > 0) &&
+        <section 
+            className='funcao' 
+            style={{
+                backgroundColor: hexToRgba(funcao.cor, '0.6'), 
+                backgroundImage: 'url(/images/fundo.png)',
+            }}>
+            <input 
+                value={funcao.cor} 
+                onChange={evento => mudarCor(evento.target.value, funcao.id)} 
+                type='color' 
+                className='cor-fundo' />
+            <h3 style={{borderBottomColor: funcao.cor}}>{funcao.nome}</h3>
             <div className='campeoes'>
-                {props.campeoes.map(campeao => <Campeao
-                    corDeFundo={props.corPrimaria}
-                    key={campeao.nome}
-                    nome={campeao.nome}
-                    regiao={campeao.regiao}
-                    imagem={campeao.imagem}
-                    funcao={campeao.funcao}
+                {campeoes.map(campeao => <Campeao
+                    key={campeao.id}
+                    campeao={campeao}
+                    aoDeletar={aoDeletar}
+                    corDeFundo={funcao.cor}
+                    aoFavoritar={aoFavoritar}
                 />)}
             </div>
         </section>
